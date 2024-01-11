@@ -1,11 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { BlocklyEditor } from '@react-blockly/native';
 
 export default function App() {
+  const workspaceConfiguration = {
+    grid: {
+      spacing: 20,
+      length: 3,
+      colour: '#ccc',
+      snap: true,
+    },
+  };
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <StatusBar style="auto"/>
+      <BlocklyEditor
+        style={{ background: '#fff' }}
+        workspaceConfiguration={workspaceConfiguration}
+      />
     </View>
   );
 }
@@ -13,8 +26,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
